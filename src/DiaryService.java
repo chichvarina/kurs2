@@ -26,22 +26,17 @@ public class DiaryService {
         for (Map.Entry<Integer, Task> entry : map.entrySet()) {
             Task task = entry.getValue();
 
-            LocalDateTime beginDateTime = task.getBeginDateTime();
-            LocalDate beginDate = beginDateTime.toLocalDate();
+            LocalDate beginDate = task.getBeginDateTime().toLocalDate();
 
             if(testDate.equals(beginDate)){
                 arrayList.add(task);
             }else{
-                if(!(task.getRepeatable() instanceof SingleRepeat)){//задача повторяется
-
+                if(! (task.getRepeatable() instanceof SingleRepeat)){//задача повторяется
                     while(beginDate.isBefore(testDate)){
-                        beginDateTime=task.getRepeatable().nextDateTime(beginDateTime);
-                        beginDate=beginDateTime.toLocalDate();
-
+                        beginDate=task.getRepeatable().nextDate(beginDate);
                         if(testDate.equals(beginDate)){
                             arrayList.add(task);
                         }
-
                     }
                 }
             }

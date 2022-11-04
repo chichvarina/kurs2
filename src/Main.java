@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -82,6 +83,8 @@ public class Main {
         System.out.print("Введите описание задачи >");
         String description = scanner.next();
 
+        label1:
+
         System.out.print("Введите дату начала задачи в формате ДД.ММ.ГГГГ >");
         String date = scanner.next();
 
@@ -89,8 +92,14 @@ public class Main {
         String dateTime = date+" "+scanner.next();
         System.out.println(dateTime);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
-        LocalDateTime beginDateTime = LocalDateTime.parse(dateTime, formatter);
+        LocalDateTime beginDateTime;
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+            beginDateTime = LocalDateTime.parse(dateTime, formatter);
+        }catch (DateTimeParseException e){
+            System.out.println("Ошибка в дате/времени. Создание задачи прервано. Ввведите данные повторно");
+            return;
+        }
 
         printRepetableMenu();
         int repeat = scanner.nextInt();

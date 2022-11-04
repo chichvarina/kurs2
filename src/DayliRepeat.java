@@ -1,10 +1,10 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class DayliRepeat implements Repeatable{
 
     @Override
-    public LocalDateTime nextDateTime(LocalDateTime previousDatetime) {
-        return previousDatetime.plusDays(1);
+    public LocalDate nextDate(LocalDate previousDate){
+        return previousDate.plusDays(1);
     }
 
     @Override

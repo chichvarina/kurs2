@@ -1,10 +1,10 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class YearlyRepeat implements Repeatable{
 
     @Override
-    public LocalDateTime nextDateTime(LocalDateTime previousDatetime) {
-        return previousDatetime.plusYears(1);
+    public LocalDate nextDate(LocalDate previousDate){
+        return previousDate.plusYears(1);
     }
 
     @Override

@@ -1,10 +1,10 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class WeeklyRepeat implements Repeatable{
 
     @Override
-    public LocalDateTime nextDateTime(LocalDateTime previousDatetime) {
-        return previousDatetime.plusWeeks(1);
+    public LocalDate nextDate(LocalDate previousDate){
+        return previousDate.plusWeeks(1);
     }
 
     @Override

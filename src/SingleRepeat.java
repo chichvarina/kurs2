@@ -1,9 +1,9 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class SingleRepeat implements Repeatable{
 
     @Override
-    public LocalDateTime nextDateTime(LocalDateTime previousDatetime) {
+    public LocalDate nextDate(LocalDate previousDate){
         return null;//задача одноразовая, следущей даты не существует
     }
 

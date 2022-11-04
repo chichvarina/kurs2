@@ -1,10 +1,10 @@
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class MonthlyRepeat implements Repeatable{
 
     @Override
-    public LocalDateTime nextDateTime(LocalDateTime previousDatetime) {
-        return previousDatetime.plusMonths(1);
+    public LocalDate nextDate(LocalDate previousDate){
+        return previousDate.plusMonths(1);
     }
 
     @Override
